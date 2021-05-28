@@ -3,15 +3,15 @@ My research work on prediction the risk of prostate cancer using information tec
 
 ## Short description:
 
-<ins>site.html</ins> and count_try_ajax.html describe two main pages of site
+<ins>site.html</ins> and <ins>count_try_ajax.html</ins> describe two main pages of site
 
-count_cgi.py gets completed form from count_try_ajax.html and sends input to test_count_cgi.py to get results
+<ins>count_cgi.py</ins> gets completed form from <ins>count_try_ajax.html</ins> and sends input to <ins>test_count_cgi.py</ins> to get results
 
-main calculations take place in test_count_cgi.py, regressor_cgi.py, classificator_cgi.py and keras_cgi.py files
+main calculations take place in <ins>test_count_cgi.py</ins>, <ins>regressor_cgi.py</ins>, <ins>classificator_cgi.py</ins> and <ins>keras_cgi.py</ins> files
 
-conditions of cancer stages are in count_degree_cgi.py
+conditions of cancer stages are in <ins>count_degree_cgi.py</ins>
 
-statistical_analysis.py conducts statistical analysis of data
+<ins>statistical_analysis.py</ins> conducts statistical analysis of data
 
 ## Approaches considered:
 
