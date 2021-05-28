@@ -14,11 +14,6 @@ text2 = html.escape(text2)
 text3 = html.escape(text3)
 text4 = html.escape(text4)
 
-# text1 = 23
-# text2 = 18
-# text3 =25
-# text4 = 27
-
 res = tcc.get_res(float(text1),float(text2),float(text3),float(text4))
 degree = cdc.count_degree(res, text4)
 
