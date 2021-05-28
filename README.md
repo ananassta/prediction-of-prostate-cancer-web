@@ -11,5 +11,11 @@ main calculations take place in test_count_cgi.py, regressor_cgi.py, classificat
 
 conditions of cancer stages are in count_degree_cgi.py
 
+## Approaches considered:
+
+- Regression
+- Classification
+- Keras neural networks
+
 ## Main requirements:
 Python 3.6 and earlier
