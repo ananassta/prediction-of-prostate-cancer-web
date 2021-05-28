@@ -1,5 +1,5 @@
 # Prediction the risk of prostate cancer
-My research work on prediction the risk of prostate cancer using information technology
+My research work on prediction the risk of prostate cancer using information technologies
 
 ## Short description:
 
