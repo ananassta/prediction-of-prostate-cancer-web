@@ -1,6 +1,6 @@
 import sqlite3 as sl
 import pandas as pd
-import db_execute as db
+import db_extraction as db
 
 con = sl.connect('prostate_cancer.db')
 
