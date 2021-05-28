@@ -1,6 +1,8 @@
 # Prediction the risk of prostate cancer
 My research work on prediction the risk of prostate cancer using information technology
 
+## Short description:
+
 site.html and count_try_ajax.html describe two main pages of site
 
 count_cgi.py gets completed form from count_try_ajax.html and sends input to test_count_cgi.py to get results
