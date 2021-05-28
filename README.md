@@ -11,6 +11,8 @@ main calculations take place in test_count_cgi.py, regressor_cgi.py, classificat
 
 conditions of cancer stages are in count_degree_cgi.py
 
+statistical_analysis.py conducts statistical analysis of data
+
 ## Approaches considered:
 
 - Regression
