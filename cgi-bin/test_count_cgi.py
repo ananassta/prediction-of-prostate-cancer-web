@@ -44,7 +44,6 @@ def start_count(age, bmi, volume, psa):
         n_classes.append(Y[i].shape[1])
 
     res.append(count_glison_m(X_train, X_test, Y_train, Y_test, 0, n_features, n_classes, enc))
-    # res.append([2, 2])
     res.append(count_t(X_train, X_test, Y_train, Y_test, n_features, n_classes, enc))
     a = count_n(X_train, X_test, Y_train, Y_test, enc)
     # res.append(a)
@@ -60,8 +59,6 @@ def start_count(age, bmi, volume, psa):
         res.append([0, 1])
     else:
         res.append([0, 0])
-    # for future res on web
-    # res = [[0,0,0], [0,0,0], [0,0,0]]
     return res
 
 def count_res():
@@ -101,12 +98,9 @@ def count_glison_m(X_train, X_test, Y_train, Y_test, i, n_features, n_classes, e
     res_r, l_r, k_r = rg.count_regression(X_train[i], X_test[i], Y_train[i], Y_test[i], i, enc[i])
     res_c, l_c, k_c, y_check = cl.count_classification(X_train[i], X_test[i], Y_train[i], Y_test[i], i, enc[i])
     res_k, l_k, k_k = kr.count_keras(X_train[i], X_test[i], Y_train[i], Y_test[i], i, n_features, n_classes[i], enc[i])
-    # print(l_r, "/////", k_r)
-    # print(l_c, "/////", k_c)
-    # print(l_k, "/////", k_k)
     sum = []
     vote = []
-    for k in range(len(res_r)):  # (res_r.size):
+    for k in range(len(res_r)):  
         vote.append([])
         for j in range(10):
             vote[k].append(0)
@@ -119,7 +113,7 @@ def count_glison_m(X_train, X_test, Y_train, Y_test, i, n_features, n_classes, e
         lj = 1
     if i == 3:
         lj = 1
-    for j in range(len(res_r)):  # (res_r.size):
+    for j in range(len(res_r)):  
         sum.append(res_r[j] + res_c[j] + res_k[j])
         sum[j] = round(sum[j] / 3)
         if i == 2 or i == 3:
@@ -139,41 +133,25 @@ def count_glison_m(X_train, X_test, Y_train, Y_test, i, n_features, n_classes, e
                     index = ij
                 else:
                     index = ij + 1
-        sum_vote.append(round(((sum[j] + index) / 2) + 0.01))  # +0.01???
-    # print(res_r)
-    # print(res_c)
-    # print(res_k)
-    # print(y_check)
-    # print(sum_vote) # check them?
+        sum_vote.append(round(((sum[j] + index) / 2) + 0.01))
     l = 0
     j = 0
-    for k in range(len(y_check)):  # (y_check.size):
+    for k in range(len(y_check)): 
         if sum_vote[k] == y_check[k]:
             if sum_vote[k] == lj:
                 l = l + 1
             else:
                 j = j + 1
-    # print(l)
-    # print(j)
-    # print("-------------------------------------------------------------")
     return sum_vote
 
 def count_t(X_train, X_test, Y_train, Y_test, n_features, n_classes, enc):
     i = 1
     res_k, l_k, k_k = kr.count_keras(X_train[i], X_test[i], Y_train[i], Y_test[i], i, n_features, n_classes[i], enc[i])
-    # print(l_k, "/////", k_k)
-    # print(l_k)
-    # print(k_k)
-    # print("-------------------------------------------------------------")
     return res_k
 
 def count_n(X_train, X_test, Y_train, Y_test, enc):
     i = 2
     res_r, l_r, k_r = rg.count_regression(X_train[i], X_test[i], Y_train[i], Y_test[i], i, enc[i])
-    # print(l_r, "/////", k_r)
-    # print(l_r)
-    # print(k_r)
-    # print("-------------------------------------------------------------")
     return res_r
 
 def count_all(X_train, X_test, Y_train, Y_test, n_features, n_classes, enc):
@@ -181,12 +159,9 @@ def count_all(X_train, X_test, Y_train, Y_test, n_features, n_classes, enc):
         res_r, l_r, k_r = rg.count_regression(X_train[i], X_test[i], Y_train[i], Y_test[i], i, enc[i])
         res_c, l_c, k_c, y_check = cl.count_classification(X_train[i], X_test[i], Y_train[i], Y_test[i], i, enc[i])
         res_k, l_k, k_k = kr.count_keras(X_train[i], X_test[i], Y_train[i], Y_test[i], i, n_features, n_classes[i], enc[i])
-        # print(l_r, "/////", k_r)
-        # print(l_c, "/////", k_c)
-        # print(l_k, "/////", k_k)
         sum = []
         vote = []
-        for k in range(len(res_r)): #(res_r.size):
+        for k in range(len(res_r)): 
             vote.append([])
             for j in range(10):
                 vote[k].append(0)
@@ -199,7 +174,7 @@ def count_all(X_train, X_test, Y_train, Y_test, n_features, n_classes, enc):
             lj = 1
         if i == 3:
             lj = 1
-        for j in range(len(res_r)): #(res_r.size):
+        for j in range(len(res_r)): 
             sum.append(res_r[j] + res_c[j] + res_k[j])
             sum[j] = round(sum[j]/3)
             if i == 2 or i == 3:
@@ -219,23 +194,15 @@ def count_all(X_train, X_test, Y_train, Y_test, n_features, n_classes, enc):
                         index = ij
                     else:
                         index = ij + 1
-            sum_vote.append(round(((sum[j]+index)/2)+0.01)) # +0.01???
-        # print(res_r)
-        # print(res_c)
-        # print(res_k)
-        # print(y_check)
-        # print(sum_vote) # check them?
+            sum_vote.append(round(((sum[j]+index)/2)+0.01)) 
         l = 0
         j = 0
-        for k in range(len(y_check)): #(y_check.size):
+        for k in range(len(y_check)): 
             if sum_vote[k] == y_check[k]:
                 if sum_vote[k] == lj:
                     l = l + 1
                 else:
                     j = j + 1
-        # print(l)
-        # print(j)
-        # print("-------------------------------------------------------------")
         return sum_vote
 
 def get_res(age, bmi, volume, psa):
@@ -243,26 +210,3 @@ def get_res(age, bmi, volume, psa):
     res = [res_double[0][0], res_double[1][0], res_double[2][0], res_double[3][0]]
     res[1] = ctt.t_to_class(res[1])
     return res
-
-# print(get_res(58, 25.66503, 20.25, 2.95))
-# print(get_res(61, 22.66954, 26.4, 2.096))
-# print(get_res(76, 31.37799, 25.0, 0.37))
-# print(get_res(70, 28.61279, 27, 1.89))
-# print(get_res(68, 26.42357, 44, 89.5))
-#print(get_res(68, 27.9205, 15, 450.75))
-#print(get_res(64, 43.35937, 50, 22.46))
-# print(get_res(62, 35.32182, 20.5, 30))
-#print(get_res(61, 43.42857, 44.0, 16.89))
-
-# con = sl.connect("prostate_cancer.db")
-# df = pd.read_sql("SELECT * FROM PATIENT", con)
-# age = np.array(df[['age']])
-# bmi = np.array(df[['bmi']])
-# volume = np.array(df[['prostate_volume']])
-# psa = np.array(df[['psa']])
-# y = np.array(df[['G', 'T', 'N', 'M']])
-# for i in range(243):
-#     res = get_res(float(age[i]), float(bmi[i]), float(volume[i]), float(psa[i]))
-#     # if y[i][0] == 6:
-#     #     print("=========================")
-#     print(i, "//", age[i], bmi[i], volume[i], psa[i], "//", y[i], "//", res)
