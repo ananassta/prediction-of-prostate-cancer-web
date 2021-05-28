@@ -40,10 +40,6 @@ function getquerystring() {
     return "age=" + age_v + "&bmi=" + bmi_v + "&volume=" + volume_v + "&psa=" + psa_v;
 }
 
-<!--  JavaScript:xmlhttpPost('/cgi-bin/count.py') -->
-<!--  '/cgi-bin/count.py' -->
-<!--<input type="submit" value="Submit" class="form_button" id="My_Button" onsubmit="return false" onclick="JavaScript:xmlhttpPost('/cgi-bin/count.py')"/>-->
-
 function updatepage(str){
     new_str = str.split(" ");
     document.getElementById("glison").innerHTML = new_str[0];
@@ -55,8 +51,6 @@ function updatepage(str){
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://use.fontawesome.com/df966d76e1.js"></script>
-
-
 
 <body bgcolor="#CCCCFF" text="#666699">
     <ul class="menu-main">
